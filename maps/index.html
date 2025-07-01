@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <title>3-й Місяць нашого кохання 💖</title>
+  <style>
+    @keyframes floatDown {
+      0% { transform: translateY(-100px); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: translateY(100vh); opacity: 0; }
+    }
+    body {
+      background: linear-gradient(135deg, #ffe6f0, #ffd4da, #fff0f6);
+      font-family: 'Roboto Mono', monospace;
+      text-align: center;
+      padding: 30px 20px;
+      color: #5a1a3e;
+      overflow-x: hidden;
+      margin: 0;
+      min-height: 100vh;
+      /* Легка текстура */
+      background-image:
+        radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.3) 0%, transparent 70%),
+        radial-gradient(circle at 80% 90%, rgba(255, 255, 255, 0.2) 0%, transparent 60%);
+      background-repeat: no-repeat;
+      background-size: 200% 200%;
+    }
+    iframe {
+      width: 100%;
+      height: 500px;
+      border-radius: 15px;
+      border: 3px solid #ffadc6;
+      margin-top: 25px;
+      max-width: 100%;
+      box-sizing: border-box;
+      box-shadow: 0 8px 20px rgba(255, 74, 138, 0.3);
+    }
+    h1 {
+      color: #d4286f;
+      font-size: 2.8em;
+      margin-top: 0;
+      animation: fadeIn 1s ease-out forwards;
+      text-shadow: 2px 2px 6px rgba(255, 90, 144, 0.7);
+    }
+    .note {
+      background: #ffe6f2;
+      padding: 25px 20px;
+      border-radius: 20px;
+      margin-top: 30px;
+      color: #6b2a4a;
+      font-style: italic;
+      animation: fadeIn 1.5s ease-out forwards;
+      line-height: 1.5;
+      box-shadow: 0 4px 15px rgba(255, 108, 145, 0.3);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 1.15em;
+    }
+    .counter {
+      margin-top: 15px;
+      font-size: 20px;
+      color: #a8325b;
+      font-weight: 600;
+      text-shadow: 1px 1px 3px rgba(255, 115, 158, 0.6);
+    }
+    .heart {
+      position: fixed;
+      top: -10px;
+      font-size: 24px;
+      color: #ff4e91;
+      animation: floatDown 8s infinite;
+      user-select: none;
+      pointer-events: none;
+      z-index: 1000;
+      text-shadow: 1px 1px 2px #b03464;
+    }
+    audio {
+      margin-top: 30px;
+      width: 100%;
+      max-width: 600px;
+      outline: none;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(255, 90, 140, 0.5);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Адаптивність для мобільних */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2em;
+      }
+      .counter {
+        font-size: 18px;
+      }
+      iframe {
+        height: 280px;
+        border-width: 2px;
+        border-radius: 12px;
+      }
+      .note {
+        font-size: 14px;
+        padding: 18px 15px;
+        border-radius: 15px;
+      }
+      .heart {
+        font-size: 18px;
+      }
+      audio {
+        max-width: 100%;
+        margin-top: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>✨ 3-й Місяць нашого кохання ✨</h1>
+
+  <div class="counter">Ми разом вже: <strong id="daysTogether"></strong> днів 💞</div>
+
+ <iframe src="https://www.google.com/maps/d/embed?mid=1_-0YOqj918Isn2lsAzeQNWKflFQqV8k&ehbc=2E312F" width="640" height="480"></iframe>
+
+  <div class="note">
+    Де б ми не були фізично, серця наші завжди поряд,<br />
+    дякую що ти в мене є, ти найдорожча моя.<br />
+    Кохаю тебе, квітонька 🌸
+  </div>
+
+  <audio controls autoplay loop>
+    <source src="golubenko1.mp3" type="audio/mp3" />
+    Твій браузер не підтримує аудіо.
+  </audio>
+
+  <script>
+    for (let i = 0; i < 20; i++) {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = `${Math.random() * 100}vw`;
+      heart.style.animationDelay = `${Math.random() * 5}s`;
+      document.body.appendChild(heart);
+      heart.innerText = '❤️';
+    }
+
+    const days = 92;
+    document.getElementById("daysTogether").textContent = days;
+  </script>
+</body>
+</html>
