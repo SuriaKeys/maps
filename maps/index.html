@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <title>3-й Місяць нашого кохання 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet" />
+  <style>
+    /* Анімації */
+    @keyframes floatDown {
+      0% { transform: translateY(-100px); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: translateY(100vh); opacity: 0; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes bounceHint {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(-6px); }
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.8; }
+      50% { opacity: 0.2; }
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Oswald', sans-serif;
+      background: radial-gradient(ellipse at bottom, #1a001a 0%, #330033 80%);
+      color: #f8c3d9;
+      text-align: center;
+      padding: 30px 20px;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-family: 'Oswald', sans-serif;
+      font-weight: normal;
+      color: #ff66b2;
+      font-size: 2.8em;
+      margin-top: 0;
+      animation: fadeIn 1s ease-out forwards;
+      text-shadow: 2px 2px 8px #ff99cc88;
+    }
+
+    .counter {
+      font-size: 20px;
+      color: #ff4da6;
+      font-weight: normal;
+      text-shadow: 1px 1px 5px #ff80bf;
+      margin-top: 15px;
+    }
+
+    .note {
+      background: #330033dd;
+      padding: 25px 20px;
+      border-radius: 20px;
+      margin: 30px auto;
+      color: #ff99cc;
+      font-style: italic;
+      line-height: 1.5;
+      box-shadow: 0 4px 15px #ff66b299;
+      max-width: 600px;
+      font-size: 1.15em;
+      animation: fadeIn 1.5s ease-out forwards;
+    }
+
+    .heart {
+      position: fixed;
+      top: -10px;
+      font-size: 24px;
+      color: #ff4da6;
+      animation: floatDown 8s infinite;
+      user-select: none;
+      pointer-events: none;
+      z-index: 1000;
+      text-shadow: 0 0 5px #ff4da6bb;
+    }
+
+    iframe {
+      width: 90%;       
+      max-width: 640px; 
+      height: 800px;    
+      margin: 25px auto 0;
+      display: block;
+      border-radius: 15px;
+      border: 3px solid #ff4da6;
+      box-shadow: 0 8px 25px #ff66b2aa;
+      background: #220022;
+    }
+
+    /* Мобільна адаптація */
+    @media (max-width: 600px) {
+      iframe {
+        width: 95%;
+        height: 600px;
+      }
+    }
+
+    audio {
+      margin-top: 30px;
+      width: 100%;
+      max-width: 600px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px #ff66b2cc;
+      background: #330033;
+    }
+
+    /* Фон зірок */
+    .stars {
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      background: transparent;
+      pointer-events: none;
+    }
+
+    .star {
+      position: absolute;
+      background: #ff99cc;
+      border-radius: 50%;
+      opacity: 0.6;
+      animation: twinkle 2s infinite;
+      box-shadow: 0 0 6px #ff66b2;
+    }
+
+    /* Фото */
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .polaroid {
+      background: #fff;
+      padding: 10px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transform: rotate(-2deg);
+      max-width: 160px;
+      color: #6b2a4a;
+    }
+
+    .polaroid img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    /* Кнопка-сюрприз */
+    #surpriseBtn {
+      margin-top: 40px;
+      padding: 10px 20px;
+      background-color: #ff4da6;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px #ff80bf;
+      transition: background-color 0.3s ease;
+      font-family: 'Oswald', sans-serif;
+    }
+    #surpriseBtn:hover {
+      background-color: #ff66b2;
+    }
+
+    #surprise {
+      margin-top: 20px;
+      font-size: 1.4em;
+      font-weight: normal;
+      color: #ff99cc;
+      display: none;
+      text-shadow: 0 0 5px #ff4da6cc;
+      font-family: 'Oswald', sans-serif;
+    }
+
+    /* Подарунок */
+    .gift-box {
+      font-size: 40px;
+      margin-top: 40px;
+      cursor: pointer;
+      animation: bounceHint 2s infinite;
+      text-shadow: 0 0 8px #ff66b2;
+    }
+
+    .gift-message {
+      display: none;
+      margin-top: 20px;
+      font-size: 1.2em;
+      background: #330033cc;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px #ff66b2bb;
+      color: #ffb3d9;
+      font-family: 'Oswald', sans-serif;
+    }
+
+    /* Мобільна адаптація */
+    @media (max-width: 600px) {
+      h1 { font-size: 2em; }
+      .note, .counter { font-size: 16px; }
+      iframe {
+        height: 450px;
+      }
+      .polaroid { transform: none; max-width: 130px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Зорі -->
+  <div class="stars" id="starsContainer"></div>
+
+  <h1>✨ 3-й Місяць нашого кохання ✨</h1>
+  <div class="counter">Ми разом вже: <strong id="daysTogether"></strong> днів 💞</div>
+
+  <iframe src="https://www.google.com/maps/d/embed?mid=1_-0YOqj918Isn2lsAzeQNWKflFQqV8k&ehbc=2E312F"></iframe>
+
+  <div class="note">
+    Де б ми не були фізично, серця наші завжди поряд,<br />
+    дякую що ти в мене є, ти найдорожча моя.<br />
+    Кохаю тебе, квітонька 🌸
+  </div>
+
+  <div class="gallery">
+    <div class="polaroid">
+      <img src="photo1.jpg" alt="Фото 1">
+      <small>Рука об руку 🌅</small>
+    </div>
+    <div class="polaroid">
+      <img src="photo2.jpg" alt="Фото 2">
+      <small>Лише в моєму саду 💘</small>
+    </div>
+  </div>
+
+  <div id="typedMessage" style="margin-top: 40px; font-size: 1.3em; font-weight: normal; color: #ff99cc; font-family: 'Oswald', sans-serif;"></div>
+
+  <button id="surpriseBtn" onclick="showLove()">Натисни, якщо кохаєш мене 💘</button>
+  <div id="surprise">Я кохаю тебе також❤️ </div>
+
+  <div class="gift-box" onclick="showGift()">🎁</div>
+  <div class="gift-message" id="giftMessage">Усередині тебе завжди живе світло, яке освітлює і моє життя. Ти мій найкращий подарунок! 💝</div>
+
+  <audio controls autoplay loop>
+    <source src="golubenko1.mp3" type="audio/mp3" />
+    Твій браузер не підтримує аудіо.
+  </audio>
+
+  <script>
+    for (let i = 0; i < 20; i++) {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = `${Math.random() * 100}vw`;
+      heart.style.animationDelay = `${Math.random() * 5}s`;
+      heart.innerText = '❤️';
+      document.body.appendChild(heart);
+    }
+
+    const days = 92;
+    document.getElementById("daysTogether").textContent = days;
+
+    const message = "Я б прожив ще мільйони днів, аби провести їх з тобою... 💕";
+    let i = 0;
+    function typeWriter() {
+      if (i < message.length) {
+        document.getElementById("typedMessage").innerHTML += message.charAt(i);
+        i++;
+        setTimeout(typeWriter, 80);
+      }
+    }
+    typeWriter();
+
+    function showLove() {
+      document.getElementById("surprise").style.display = "block";
+    }
+
+    function showGift() {
+      const msg = document.getElementById("giftMessage");
+      msg.style.display = msg.style.display === "none" ? "block" : "none";
+    }
+
+    // Зорі
+    const stars = document.getElementById('starsContainer');
+    for (let i = 0; i < 50; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+      star.style.top = `${Math.random() * 100}vh`;
+      star.style.left = `${Math.random() * 100}vw`;
+      const size = Math.random() * 3 + 1;
+      star.style.width = `${size}px`;
+      star.style.height = `${size}px`;
+      star.style.animationDelay = `${Math.random() * 3}s`;
+      stars.appendChild(star);
+    }
+  </script>
+</body>
+</html>
